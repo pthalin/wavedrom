@@ -71,7 +71,7 @@ function appendSaveAsDialog (index, output) {
 
                     a = document.createElement('a');
                     a.href = pngdata;
-                    a.download = 'wavedrom.png';
+                    a.download = 'test.png';
                     a.click();
 
                     menu.parentNode.removeChild(menu);
@@ -1274,7 +1274,8 @@ function renderArcs (root, source, index, top, lane) {
                     if (eventname !== '.') {
                         Events[eventname] = {
                             'x' : lane.xs * (2 * pos * lane.period * lane.hscale - lane.phase) + lane.xlabel,
-                            'y' : i * lane.yo + lane.y0 + lane.ys * 0.5
+                            'y' : i * lane.yo + lane.y0 + lane.ys * 0.5,
+                            'h' : false
                         };
                     }
                     pos += 1;
@@ -1361,6 +1362,13 @@ function renderArcs (root, source, index, top, lane) {
                         gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:#0041c4;stroke-width:1;fill:none');
                         break;
                     }
+                    case '=>' : {
+                        gmark.setAttribute('style', 'marker-end:url(#arrowheadnl);stroke:#0041c4;stroke-width:1;fill:none');
+                        if (Edge.label) { 
+							Events[Edge.to].h = true;
+						}
+                        break;
+                    }
                     case '~>' : {
                         gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:#0041c4;stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'M ' + from.x + ',' + from.y + ' ' + 'c ' + (0.7 * dx) + ', 0 ' + 0.3 * dx + ', ' + dy + ' ' + dx + ', ' + dy);
@@ -1399,6 +1407,14 @@ function renderArcs (root, source, index, top, lane) {
                         gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:#0041c4;stroke-width:1;fill:none');
                         break;
                     }
+                    case '<=>' : {
+                        gmark.setAttribute('style', 'marker-end:url(#arrowheadnl);marker-start:url(#arrowtailnl);stroke:#0041c4;stroke-width:1;fill:none');
+                        if (Edge.label) { 
+							Events[Edge.to].h = true;
+							Events[Edge.from].h = true;
+						};
+                        break;
+                    }
                     case '<~>' : {
                         gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:#0041c4;stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'M ' + from.x + ',' + from.y + ' ' + 'c ' + (0.7 * dx) + ', 0 ' + (0.3 * dx) + ', ' + dy + ' ' + dx + ', ' + dy);
@@ -1434,7 +1450,7 @@ function renderArcs (root, source, index, top, lane) {
         }
         for (k in Events) {
             if (k === k.toLowerCase()) {
-                if (Events[k].x > 0) {
+                if ((Events[k].x > 0) && !Events[k].h) {
                     underlabel = jsonmlParse(['rect',
                         {
                             y: Events[k].y - 4,
