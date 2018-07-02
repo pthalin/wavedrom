@@ -71,7 +71,7 @@ function appendSaveAsDialog (index, output) {
 
                     a = document.createElement('a');
                     a.href = pngdata;
-                    a.download = 'test.png';
+                    a.download = 'wavedrom.png';
                     a.click();
 
                     menu.parentNode.removeChild(menu);
@@ -1225,6 +1225,8 @@ module.exports = rec;
 },{}],23:[function(require,module,exports){
 'use strict';
 
+var color = '#008300';
+
 var tspan = require('tspan'),
     jsonmlParse = require('./create-element'),
     w3 = require('./w3');
@@ -1256,7 +1258,7 @@ function renderArcs (root, source, index, top, lane) {
             gmark = document.createElementNS(w3.svg, 'path');
             gmark.id = ('gmark_' + Edge.from + '_' + Edge.to);
             gmark.setAttribute('d', 'M ' + from.x + ',' + from.y + ' ' + to.x   + ',' + to.y);
-            gmark.setAttribute('style', 'fill:none;stroke:#00F;stroke-width:1');
+            gmark.setAttribute('style', 'fill:none;stroke:'+color+';stroke-width:1');
             gg.insertBefore(gmark, null);
         }
     }
@@ -1302,7 +1304,7 @@ function renderArcs (root, source, index, top, lane) {
                         label.unshift(
                             'text',
                             {
-                                style: 'font-size:10px;',
+                                style: 'fill:'+color+';font-size:10px;',
                                 'text-anchor': 'middle',
                                 'xml:space': 'preserve'
                             }
@@ -1311,14 +1313,13 @@ function renderArcs (root, source, index, top, lane) {
                         underlabel = jsonmlParse(['rect',
                             {
                                 height: 9,
-                                style: 'fill:#FFF;'
+                                style: 'fill:#FFF;stroke:#FFF;stroke-width:5;'
                             }
                         ]);
                         gg.insertBefore(underlabel, null);
                         gg.insertBefore(label, null);
 
                         lwidth = label.getBBox().width;
-
                         underlabel.setAttribute('width', lwidth);
                     }
                     dx = to.x - from.x;
@@ -1359,81 +1360,82 @@ function renderArcs (root, source, index, top, lane) {
                         break;
                     }
                     case '->' : {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:'+color+';stroke-width:1;fill:none');
                         break;
                     }
                     case '=>' : {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowheadnl);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowheadnl);stroke:'+color+';stroke-width:1;fill:none');
                         if (Edge.label) { 
-							Events[Edge.to].h = true;
-						}
+                            Events[Edge.to].h = true;
+                            Events[Edge.from].h = true;
+                        }
                         break;
                     }
                     case '~>' : {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'M ' + from.x + ',' + from.y + ' ' + 'c ' + (0.7 * dx) + ', 0 ' + 0.3 * dx + ', ' + dy + ' ' + dx + ', ' + dy);
                         break;
                     }
                     case '-~>': {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'M ' + from.x + ',' + from.y + ' ' + 'c ' + (0.7 * dx) + ', 0 ' +     dx + ', ' + dy + ' ' + dx + ', ' + dy);
                         if (Edge.label) { lx = (from.x + (to.x - from.x) * 0.75); }
                         break;
                     }
                     case '~->': {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'M ' + from.x + ',' + from.y + ' ' + 'c ' + 0      + ', 0 ' + (0.3 * dx) + ', ' + dy + ' ' + dx + ', ' + dy);
                         if (Edge.label) { lx = (from.x + (to.x - from.x) * 0.25); }
                         break;
                     }
                     case '-|>' : {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'm ' + from.x + ',' + from.y + ' ' + dx + ',0 0,' + dy);
                         if (Edge.label) { lx = to.x; }
                         break;
                     }
                     case '|->' : {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'm ' + from.x + ',' + from.y + ' 0,' + dy + ' ' + dx + ',0');
                         if (Edge.label) { lx = from.x; }
                         break;
                     }
                     case '-|->': {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'm ' + from.x + ',' + from.y + ' ' + (dx / 2) + ',0 0,' + dy + ' ' + (dx / 2) + ',0');
                         break;
                     }
                     case '<->' : {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:'+color+';stroke-width:1;fill:none');
                         break;
                     }
                     case '<=>' : {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowheadnl);marker-start:url(#arrowtailnl);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowheadnl);marker-start:url(#arrowtailnl);stroke:'+color+';stroke-width:1;fill:none');
                         if (Edge.label) { 
-							Events[Edge.to].h = true;
-							Events[Edge.from].h = true;
-						};
+                            Events[Edge.to].h = true;
+                            Events[Edge.from].h = true;
+                        };
                         break;
                     }
                     case '<~>' : {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'M ' + from.x + ',' + from.y + ' ' + 'c ' + (0.7 * dx) + ', 0 ' + (0.3 * dx) + ', ' + dy + ' ' + dx + ', ' + dy);
                         break;
                     }
                     case '<-~>': {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'M ' + from.x + ',' + from.y + ' ' + 'c ' + (0.7 * dx) + ', 0 ' +     dx + ', ' + dy + ' ' + dx + ', ' + dy);
                         if (Edge.label) { lx = (from.x + (to.x - from.x) * 0.75); }
                         break;
                     }
                     case '<-|>' : {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'm ' + from.x + ',' + from.y + ' ' + dx + ',0 0,' + dy);
                         if (Edge.label) { lx = to.x; }
                         break;
                     }
                     case '<-|->': {
-                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:#0041c4;stroke-width:1;fill:none');
+                        gmark.setAttribute('style', 'marker-end:url(#arrowhead);marker-start:url(#arrowtail);stroke:'+color+';stroke-width:1;fill:none');
                         gmark.setAttribute('d', 'm ' + from.x + ',' + from.y + ' ' + (dx / 2) + ',0 0,' + dy + ' ' + (dx / 2) + ',0');
                         break;
                     }
@@ -1755,6 +1757,7 @@ module.exports = renderGaps;
 'use strict';
 
 var tspan = require('tspan');
+var color = '#008300';
 
 function renderGroups (groups, index, lane) {
     var x, y, res = ['g'], ts;
@@ -1766,7 +1769,7 @@ function renderGroups (groups, index, lane) {
                 d: ('m ' + (e.x + 0.5) + ',' + (e.y * lane.yo + 3.5 + lane.yh0 + lane.yh1)
                     + ' c -3,0 -5,2 -5,5 l 0,' + (e.height * lane.yo - 16)
                     + ' c 0,3 2,5 5,5'),
-                style: 'stroke:#0041c4;stroke-width:1;fill:none'
+                style: 'stroke:'+color+';stroke-width:1;fill:none'
             }
         ]);
 
