@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-var color = '#0077c0';
+var color = '#008300';
 
 var fs = require('fs'),
     path = require('path'),
