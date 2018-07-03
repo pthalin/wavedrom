@@ -484,10 +484,13 @@ module.exports = insertSVGTemplateAssign;
 
 var jsonmlParse = require('./create-element'),
     w3 = require('./w3'),
-    waveSkin = require('./wave-skin');
+    skins = require('./wave-skin');
+    
+    var waveSkin  = skins.WaveSkin;
+    var waveColor = skins.WaveColor;
 
 function insertSVGTemplate (index, parent, source, lane) {
-    var node, first, e;
+    var node, first, e, color;
 
     // cleanup
     while (parent.childNodes.length) {
@@ -497,9 +500,11 @@ function insertSVGTemplate (index, parent, source, lane) {
     for (first in waveSkin) { break; }
 
     e = waveSkin.default || waveSkin[first];
+    color = '#0041c4';
 
     if (source && source.config && source.config.skin && waveSkin[source.config.skin]) {
         e = waveSkin[source.config.skin];
+        color = waveColor[source.config.skin];
     }
 
     if (index === 0) {
@@ -533,6 +538,7 @@ function insertSVGTemplate (index, parent, source, lane) {
 
     node = jsonmlParse(e);
     parent.insertBefore(node, null);
+    return color;
 }
 
 module.exports = insertSVGTemplate;
@@ -1225,13 +1231,11 @@ module.exports = rec;
 },{}],23:[function(require,module,exports){
 'use strict';
 
-var color = '#008300';
-
 var tspan = require('tspan'),
     jsonmlParse = require('./create-element'),
     w3 = require('./w3');
 
-function renderArcs (root, source, index, top, lane) {
+function renderArcs (root, source, index, top, lane, color) {
     var gg,
         i,
         k,
@@ -1757,9 +1761,8 @@ module.exports = renderGaps;
 'use strict';
 
 var tspan = require('tspan');
-var color = '#008300';
 
-function renderGroups (groups, index, lane) {
+function renderGroups (groups, index, lane, color) {
     var x, y, res = ['g'], ts;
 
     groups.forEach(function (e, i) {
@@ -1965,10 +1968,11 @@ var rec = require('./rec'),
 function renderWaveForm (index, source, output) {
     var ret,
         root, groups, svgcontent, content, width, height,
-        glengths, xmax = 0, i;
+        glengths, xmax = 0, i,
+        color;
 
     if (source.signal) {
-        insertSVGTemplate(index, document.getElementById(output + index), source, lane);
+        color = insertSVGTemplate(index, document.getElementById(output + index), source, lane);
         parseConfig(source, lane);
         ret = rec(source.signal, {'x':0, 'y':0, 'xmax':0, 'width':[], 'lanes':[], 'groups':[]});
         root = document.getElementById('lanes_' + index);
@@ -1979,9 +1983,9 @@ function renderWaveForm (index, source, output) {
             xmax = Math.max(xmax, (glengths[i] + ret.width[i]));
         }
         renderMarks(root, content, index, lane);
-        renderArcs(root, ret.lanes, index, source, lane);
+        renderArcs(root, ret.lanes, index, source, lane, color);
         renderGaps(root, ret.lanes, index, lane);
-        groups.insertBefore(jsonmlParse(renderGroups(ret.groups, index, lane)), null);
+        groups.insertBefore(jsonmlParse(renderGroups(ret.groups, index, lane, color)), null);
         lane.xg = Math.ceil((xmax - lane.tgo) / lane.xs) * lane.xs;
         width  = (lane.xg + (lane.xs * (lane.xmax + 1)));
         height = (content.length * lane.yo +
@@ -2140,7 +2144,9 @@ window.WaveDrom.eva = index.eva;
 },{"./":9}],33:[function(require,module,exports){
 'use strict';
 
-module.exports = window.WaveSkin;
+module.exports.WaveSkin  = window.WaveSkin;
+module.exports.WaveColor = window.WaveColor;
+
 
 /* eslint-env browser */
 

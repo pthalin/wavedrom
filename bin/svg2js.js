@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-var color = '#008300';
+var color = '#0041c4';
 
 var fs = require('fs'),
     path = require('path'),
@@ -9,6 +9,8 @@ var fs = require('fs'),
     argv = require('yargs').argv;
 
 var styles = {};
+
+var color1 = ['color', color];
 
 var marker1 = ['marker', {'id':'arrowhead', 'style':'fill:'+color, 'markerHeight':'7', 'markerWidth':'10', 'markerUnits':'strokeWidth', 'viewBox':'0 -4 11 8', 'refX':'15','refY':'0','orient':'auto'},
   ['path', {'d':'M0 -4 11 0 0 4z'}]
@@ -71,6 +73,7 @@ function f2o (name, cb) {
                 };
             }
         });
+        
         defs.push(marker1);
         defs.push(marker2);
         defs.push(marker1nl);
@@ -81,6 +84,7 @@ function f2o (name, cb) {
         style.push(defStyle);
         // cb('module.exports = ' + jsof.stringify(res) + ';');
         cb('var WaveSkin=WaveSkin||{};WaveSkin.' + path.basename(name, '.svg') + '=' + JSON.stringify(res) + ';');
+        cb("var WaveColor=WaveColor||{};WaveColor." + path.basename(name, '.svg') + "='" + color + "';");
     });
 }
 
