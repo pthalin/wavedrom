@@ -490,17 +490,15 @@ var jsonmlParse = require('./create-element'),
     var waveColor = skins.WaveColor;
 
 function insertSVGTemplate (index, parent, source, lane) {
-    var node, first, e, color;
+    var node, e, color;
 
     // cleanup
     while (parent.childNodes.length) {
         parent.removeChild(parent.childNodes[0]);
     }
 
-    for (first in waveSkin) { break; }
-
-    e = waveSkin.default || waveSkin[first];
-    color = '#0041c4';
+    e = waveSkin.default; 
+    color = waveColor.default;
 
     if (source && source.config && source.config.skin && waveSkin[source.config.skin]) {
         e = waveSkin[source.config.skin];
