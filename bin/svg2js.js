@@ -1,51 +1,50 @@
 #!/usr/bin/env node
 'use strict';
 
-var color = '#0041c4';
+var defcolor = '#0041c4';
 
-var fs = require('fs'),
+    var fs = require('fs'),
     path = require('path'),
     onml = require('onml'),
     argv = require('yargs').argv;
 
-var styles = {};
 
-var color1 = ['color', color];
+function f2o (name, cb, color) {
+    var full, ml;  
 
-var marker1 = ['marker', {'id':'arrowhead', 'style':'fill:'+color, 'markerHeight':'7', 'markerWidth':'10', 'markerUnits':'strokeWidth', 'viewBox':'0 -4 11 8', 'refX':'15','refY':'0','orient':'auto'},
-  ['path', {'d':'M0 -4 11 0 0 4z'}]
-];
+	var styles = {};
 
-var marker2 = ['marker', {'id':'arrowtail', 'style':'fill:'+color, 'markerHeight':'7', 'markerWidth':'10', 'markerUnits':'strokeWidth', 'viewBox':'-11 -4 11 8', 'refX':'-15','refY':'0','orient':'auto'},
-  ['path',{'d':'M0 -4 -11 0 0 4z'}]
-];
+	var marker1 = ['marker', {'id':'arrowhead', 'style':'fill:'+color, 'markerHeight':'7', 'markerWidth':'10', 'markerUnits':'strokeWidth', 'viewBox':'0 -4 11 8', 'refX':'15','refY':'0','orient':'auto'},
+	  ['path', {'d':'M0 -4 11 0 0 4z'}]
+	];
 
-var marker1nl = ['marker', {'id':'arrowheadnl', 'style':'fill:'+color, 'markerHeight':'7', 'markerWidth':'10', 'markerUnits':'strokeWidth', 'viewBox':'0 -4 11 8', 'refX':'10','refY':'0','orient':'auto'},
-  ['path', {'d':'M0 -4 11 0 0 4z'}]
-];
+	var marker2 = ['marker', {'id':'arrowtail', 'style':'fill:'+color, 'markerHeight':'7', 'markerWidth':'10', 'markerUnits':'strokeWidth', 'viewBox':'-11 -4 11 8', 'refX':'-15','refY':'0','orient':'auto'},
+	  ['path',{'d':'M0 -4 -11 0 0 4z'}]
+	];
 
-var marker2nl = ['marker', {'id':'arrowtailnl', 'style':'fill:'+color, 'markerHeight':'7', 'markerWidth':'10', 'markerUnits':'strokeWidth', 'viewBox':'-11 -4 11 8', 'refX':'-10','refY':'0','orient':'auto'},
-  ['path',{'d':'M0 -4 -11 0 0 4z'}]
-];
+	var marker1nl = ['marker', {'id':'arrowheadnl', 'style':'fill:'+color, 'markerHeight':'7', 'markerWidth':'10', 'markerUnits':'strokeWidth', 'viewBox':'0 -4 11 8', 'refX':'10','refY':'0','orient':'auto'},
+	  ['path', {'d':'M0 -4 11 0 0 4z'}]
+	];
 
-var defs = ['defs'];
-var style = ['style', { type: 'text/css' }];
-var defStyle = 'text{font-size:11pt;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;fill-opacity:1;font-family:Helvetica}.muted{fill:#aaa}.warning{fill:#f6b900}.error{fill:#f60000}.info{fill:'+color+'}.success{fill:#00ab00}.h1{font-size:33pt;font-weight:bold}.h2{font-size:27pt;font-weight:bold}.h3{font-size:20pt;font-weight:bold}.h4{font-size:14pt;font-weight:bold}.h5{font-size:11pt;font-weight:bold}.h6{font-size:8pt;font-weight:bold}';
+	var marker2nl = ['marker', {'id':'arrowtailnl', 'style':'fill:'+color, 'markerHeight':'7', 'markerWidth':'10', 'markerUnits':'strokeWidth', 'viewBox':'-11 -4 11 8', 'refX':'-10','refY':'0','orient':'auto'},
+	  ['path',{'d':'M0 -4 -11 0 0 4z'}]
+	];
 
-var res = ['svg',
-    {
-        id: 'svg',
-        xmlns: 'http://www.w3.org/2000/svg',
-        'xmlns:xlink': 'http://www.w3.org/1999/xlink',
-        height: '0'
-    },
-    style,
-    defs,
-    ['g',{'id':'waves'},['g',{'id':'lanes'}],['g',{'id':'groups'}]]
-];
+	var defs = ['defs'];
+	var style = ['style', { type: 'text/css' }];
+	var defStyle = 'text{font-size:11pt;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;fill-opacity:1;font-family:Helvetica}.muted{fill:#aaa}.warning{fill:#f6b900}.error{fill:#f60000}.info{fill:'+color+'}.success{fill:#00ab00}.h1{font-size:33pt;font-weight:bold}.h2{font-size:27pt;font-weight:bold}.h3{font-size:20pt;font-weight:bold}.h4{font-size:14pt;font-weight:bold}.h5{font-size:11pt;font-weight:bold}.h6{font-size:8pt;font-weight:bold}';
 
-function f2o (name, cb) {
-    var full, ml;
+	var res = ['svg',
+		{
+			id: 'svg',
+			xmlns: 'http://www.w3.org/2000/svg',
+			'xmlns:xlink': 'http://www.w3.org/1999/xlink',
+			height: '0'
+		},
+		style,
+		defs,
+		['g',{'id':'waves'},['g',{'id':'lanes'}],['g',{'id':'groups'}]]
+	];
     full = path.resolve(process.cwd(), name);
     fs.readFile(full, { encoding: 'utf8'}, function (err, dat) {
         if (err) { throw err; }
@@ -89,5 +88,6 @@ function f2o (name, cb) {
 }
 
 if (typeof argv.i === 'string') {
-    f2o(argv.i, console.log);
+	var color = argv.c || defcolor;
+    f2o(argv.i, console.log, color);
 }
