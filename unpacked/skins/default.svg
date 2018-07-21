@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.0"
-   width="400"
-   height="400"
-   units="mm"
+   sodipodi:docname="default.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    id="svg"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="default.svg">
+   units="mm"
+   height="400"
+   width="400"
+   version="1.0">
   <g
      id="socket"
      transform="translate(234,15)">
@@ -39,27 +39,27 @@
   <defs
      id="defs1854" />
   <sodipodi:namedview
-     pagecolor="#fff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1600"
-     inkscape:window-height="878"
-     id="namedview1852"
-     showgrid="true"
-     inkscape:document-units="px"
-     units="px"
-     inkscape:zoom="1.7275"
-     inkscape:cx="292.61939"
-     inkscape:cy="200"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:current-layer="gap"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg">
+     inkscape:window-y="27"
+     inkscape:window-x="51"
+     inkscape:cy="359.99812"
+     inkscape:cx="144.87076"
+     inkscape:zoom="6.7144934"
+     units="px"
+     inkscape:document-units="px"
+     showgrid="true"
+     id="namedview1852"
+     inkscape:window-height="745"
+     inkscape:window-width="1229"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#fff">
     <inkscape:grid
        type="xygrid"
        id="grid4833"
@@ -68,8 +68,10 @@
        enabled="true"
        snapvisiblegridlinesonly="true"
        units="px"
-       spacingx="1px"
-       spacingy="1px" />
+       spacingx="1"
+       spacingy="1"
+       originx="0"
+       originy="0" />
   </sodipodi:namedview>
   <g
      id="pclk"
@@ -1012,22 +1014,35 @@
      transform="translate(110,30)">
     <path
        inkscape:connector-curvature="0"
-       d="m7,-2 -4,0 c -5,0 -5,24 -10,24 l 4,0 C 2,22 2,-2 7,-2 z"
-       style="fill:#fff;stroke:none"
+       d="M 7,-2 H 3 c -5,0 -5,24 -10,24 h 4 C 2,22 2,-2 7,-2 Z"
+       style="fill:#ffffff;stroke:none"
        id="zmo_120_40-2-7-7-6-7"
        sodipodi:nodetypes="csccc" />
-    <path
-       id="zmo_120_40-2-7-7"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M-7,22 C -2,22 -2,-2 3,-2"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <path
-       id="zmo_120_40-2-7-7-6"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M-3,22 C 2,22 2,-2 7,-2"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.41644061;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1336"
+       width="20"
+       height="30"
+       x="-10"
+       y="-5" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.40062991;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path1407"
+       cx="-0.021369159"
+       cy="9.8627596"
+       r="1" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.40062991;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path1407-7"
+       cx="4.9572601"
+       cy="9.8627596"
+       r="1" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.40062991;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path1407-7-5"
+       cx="-5.0002193"
+       cy="9.8627596"
+       r="1" />
   </g>
   <g
      id="0mv-3"
@@ -1773,21 +1788,21 @@
      id="0mv-5"
      transform="translate(330,80)">
     <path
-       style="color:#000;fill:#b9e0ff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="M9,0 20,0 20,20 3,20 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#b9e0ff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;enable-background:accumulate"
+       d="M 9,0 H 20 V 20 H 3 Z"
        id="rect3313-3-6"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
     <path
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
-       d="M3,20 9,0 20,0"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 3,20 9,0 h 11"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="zmo_120_40-2-74-9-7" />
     <path
        inkscape:connector-curvature="0"
-       d="m0,20 20,0"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 0,20 H 20"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="zzz_25_25-48-0-0-0" />
   </g>
   <g
@@ -2109,20 +2124,20 @@
      id="vvv-5"
      transform="translate(20,360)">
     <path
-       style="color:#000;fill:#b9e0ff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="M20,20 0,20 0,0 20,0"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#b9e0ff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.0015748;marker:none;enable-background:accumulate;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 20,20 H 0 V 0 h 20"
        id="rect3313-2-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
     <path
        inkscape:connector-curvature="0"
-       d="m0,20 20,0"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 0,20 H 20"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="zzz_35_40-8-3" />
     <path
        inkscape:connector-curvature="0"
-       d="M0,0 20,0"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 0,0 H 20"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="or_35_40_1-8-0" />
   </g>
   <g
@@ -2294,30 +2309,30 @@
      transform="translate(170,30)">
     <path
        inkscape:connector-curvature="0"
-       d="M-3,12 0,3 3,12 C 1,11 -1,11 -3,12 z"
+       d="M -3.2564564,12.75507 6.4365568e-4,6.7183578 3.2576436,12.75507"
        id="pclk20_2.5-7-8"
-       sodipodi:nodetypes="cccc"
-       style="fill:#000;fill-opacity:1;stroke:none" />
+       sodipodi:nodetypes="ccc"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.48379001;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        inkscape:connector-curvature="0"
-       d="M0,20 0,0 20,0"
+       d="M 0,20 V 0 h 20"
        id="pclk20_2.5-7"
        sodipodi:nodetypes="ccc"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   </g>
   <g
      id="Nclk"
      transform="translate(200,30)">
     <path
        inkscape:connector-curvature="0"
-       d="M-3,8 0,17 3,8 C 1,9 -1,9 -3,8 z"
+       d="M -3.2564564,6.4538527 5.5699207e-4,12.490567 3.257571,6.4538527"
        id="pclk20_2.5-7-8-7"
-       sodipodi:nodetypes="cccc"
-       style="fill:#000;fill-opacity:1;stroke:none" />
+       sodipodi:nodetypes="ccc"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.48379001;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        inkscape:connector-curvature="0"
-       d="m0,0 0,20 20,0"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 0,0 V 20 H 20"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="pclk25_2.5-1"
        sodipodi:nodetypes="ccc" />
   </g>
@@ -2325,20 +2340,20 @@
      id="vvv-2"
      transform="translate(20,270)">
     <path
-       style="color:#000;fill:#fff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="M20,20 0,20 0,0 20,0"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;enable-background:accumulate"
+       d="M 20,20 H 0 V 0 h 20"
        id="rect3313-2-5"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
     <path
        inkscape:connector-curvature="0"
-       d="m0,20 20,0"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 0,20 H 20"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="zzz_35_40-8-5" />
     <path
        inkscape:connector-curvature="0"
-       d="M0,0 20,0"
-       style="fill:none;stroke:#000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 0,0 H 20"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="or_35_40_1-8-1" />
   </g>
   <g
@@ -2858,14 +2873,14 @@
      transform="translate(350,30)">
     <path
        inkscape:connector-curvature="0"
-       d="m-12,-3 9,3 -9,3 c 1,-2 1,-4 0,-6 z"
+       d="m -12,-3 9,3 -9,3 c 1,-2 1,-4 0,-6 z"
        id="cap0"
        sodipodi:nodetypes="cccc"
        style="fill:#0041c4;fill-opacity:1;stroke:none" />
     <path
        inkscape:connector-curvature="0"
-       d="M0,0 -15,0"
-       style="fill:none;stroke:#0041c4;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 0,0 H -15"
+       style="fill:none;stroke:#0041c4;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="pclk25_2.5-1-4"
        sodipodi:nodetypes="cc" />
   </g>
